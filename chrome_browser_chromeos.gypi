@@ -6,21 +6,7 @@
 {
   'targets': [
     {
-      'target_name': 'browser_chromeos',
-      'type': 'static_library',
-      'variables': {
-        'conditions': [
-          ['sysroot!=""', {
-            'pkg-config': '../build/linux/pkg-config-wrapper "<(sysroot)" "<(target_arch)" "<(system_libdir)"',
-          }, {
-            'pkg-config': 'pkg-config'
-          }],
-        ],
-        # Override to dynamically link the cras (ChromeOS audio) library.
-        'use_cras%': 0,
-        'enable_wexit_time_destructors': 1,
-      },
-      'dependencies': [
+           'dependencies': [
         # TODO(tbarzic): Cleanup this list.
         'attestation_proto',
         'browser/performance_monitor/performance_monitor.gyp:performance_monitor',
